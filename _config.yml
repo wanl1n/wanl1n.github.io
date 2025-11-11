@@ -69,3 +69,8 @@ kramdown:
   hard_wrap         : false
   footnote_nr       : 1
   show_warnings     : false
+
+#Theme
+theme: jekyll-theme-minimal
+title: Kate Nicole Young
+description: My portfolio of games, projects, works, and more.
