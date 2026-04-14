@@ -1,237 +1,195 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kate Nicole Young</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
-  *{box-sizing:border-box;margin:0;padding:0;}
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --rose:#c26b7a;--rose-deep:#9e4d5c;
+  --blush:#f2c4c4;--blush-pale:#fceee8;--blush-mid:#e8a0a0;
+  --sage:#7a8c6e;--sage-light:#b5c4a8;
+  --tan-pale:#f5ece0;
+  --cream:#fdf6f0;
+  --text-dark:#3b2f24;--text-mid:#6b5a4a;--text-light:#9c8878;
+  --border:rgba(194,107,122,0.18);
+  --card-bg:#fff;--stats-bg:#fceee8;--preview-bg:#f5ece0;
+  --games-hero-bg:#fceee8;--contact-bg:#fceee8;--skills-bg:#f5ece0;
+  --pill-bg:#fff;
+}
+body.dark{
+  --rose:#e8909e;--rose-deep:#c26b7a;
+  --blush:rgba(194,107,122,0.28);--blush-pale:#2a1c20;--blush-mid:#c26b7a;
+  --cream:#1e1518;
+  --text-dark:#f0e6e0;--text-mid:#c4a89a;--text-light:#7a6058;
+  --border:rgba(194,107,122,0.2);
+  --card-bg:#2a1c20;--stats-bg:#261820;--preview-bg:#201a16;
+  --games-hero-bg:#261820;--contact-bg:#261820;--skills-bg:#1c1812;
+  --pill-bg:#2a1c20;--tan-pale:#201a16;
+}
+html{font-size:150%;}
+body{font-family:'Lora',Georgia,serif;background:var(--cream);color:var(--text-dark);min-height:100vh;transition:background 0.3s,color 0.3s;}
 
-  :root{
-    --sage:#7a8c6e;--sage-light:#b5c4a8;--sage-pale:#eef2ea;
-    --cream:#fdf6f0;--blush:#f2c4c4;--blush-pale:#fceee8;--blush-mid:#e8a0a0;
-    --rose:#c26b7a;--rose-deep:#9e4d5c;
-    --tan-pale:#f5ece0;
-    --text-dark:#3b2f24;--text-mid:#6b5a4a;--text-light:#9c8878;
-    --border:rgba(194,107,122,0.14);
-    --bg:var(--cream);
-    --nav-bg:rgba(253,246,240,0.95);
-    --card-bg:#fff;
-    --aside-bg:#fff;
-    --stats-bg:var(--blush-pale);
-    --preview-bg:var(--tan-pale);
-    --skills-bg:var(--tan-pale);
-    --contact-bg:var(--blush-pale);
-    --footer-bg:transparent;
-    --hero-frame-bg:var(--blush-pale);
-    --pt-pink:#fce8ec;--pt-purple:#f0e8f5;--pt-sage:#e8f0ee;
-    --pt-blue:#e8edf5;--pt-amber:#f5ede8;--pt-teal:#e8f5f2;
-    --cert-bg:#fff;
-    --pill-bg:#fff;
-    --section-header-border:var(--blush);
-  }
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:0.6rem 2rem;border-bottom:1px solid var(--border);background:var(--cream);position:sticky;top:0;z-index:100;transition:background 0.3s,border-color 0.3s;}
+.nav-left{display:flex;align-items:center;}
+.nav-name{font-family:'Playfair Display',serif;font-size:0.77rem;font-style:italic;color:var(--rose);cursor:pointer;}
+.nav-right{display:flex;align-items:center;gap:1.2rem;}
+.nav-links{display:flex;gap:1.2rem;list-style:none;}
+.nav-links button{background:none;border:none;cursor:pointer;font-family:'Lora',serif;font-size:0.53rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-mid);transition:color 0.2s;padding:0;}
+.nav-links button:hover,.nav-links button.active{color:var(--rose);}
+.nav-links button.active{border-bottom:1px solid var(--rose);padding-bottom:2px;}
+.theme-toggle{background:none;border:1px solid var(--border);border-radius:50%;width:1.7rem;height:1.7rem;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--text-mid);transition:border-color 0.2s,color 0.2s;}
+.theme-toggle:hover{border-color:var(--rose);color:var(--rose);}
+.theme-toggle svg{width:0.72rem;height:0.72rem;}
 
-  body.dark{
-    --cream:#1a1218;
-    --blush:rgba(194,107,122,0.25);
-    --blush-pale:#241820;
-    --blush-mid:#c26b7a;
-    --rose:#e8899a;
-    --rose-deep:#f2a8b8;
-    --tan-pale:#1e1714;
-    --text-dark:#f0e6e0;
-    --text-mid:#c4a89a;
-    --text-light:#8a7068;
-    --border:rgba(194,107,122,0.18);
-    --bg:var(--cream);
-    --nav-bg:rgba(26,18,24,0.97);
-    --card-bg:#231820;
-    --aside-bg:#231820;
-    --stats-bg:#1e1419;
-    --preview-bg:#1e1714;
-    --skills-bg:#1a1512;
-    --contact-bg:#1e1419;
-    --hero-frame-bg:#2a1c22;
-    --pt-pink:#2e1e24;--pt-purple:#241c2e;--pt-sage:#1c2620;
-    --pt-blue:#1c2030;--pt-amber:#2a2018;--pt-teal:#182624;
-    --cert-bg:#2a1e24;
-    --pill-bg:#2a1e24;
-    --section-header-border:rgba(194,107,122,0.25);
-  }
+/* PAGE */
+.page{display:none;animation:pageIn 0.35s ease forwards;}
+.page.visible{display:block;}
+@keyframes pageIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
 
-  body{font-family:'Lora',Georgia,serif;background:var(--bg);color:var(--text-dark);min-height:100vh;transition:background 0.3s,color 0.3s;font-size:150%;}
+/* SHARED */
+.section{padding:2.67rem 2rem;}
+.section-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem;}
+.section-title{font-family:'Playfair Display',serif;font-size:1.27rem;font-weight:400;color:var(--text-dark);white-space:nowrap;}
+.section-line{flex:1;height:1px;background:var(--blush);}
+.section-tag{font-size:0.47rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-light);white-space:nowrap;}
+.subsection-title{font-family:'Playfair Display',serif;font-size:0.77rem;font-style:italic;color:var(--text-mid);margin:1.6rem 0 1rem;padding-bottom:0.3rem;border-bottom:1px solid var(--border);}
+.subsection-title:first-child{margin-top:0;}
 
-  /* NAV */
-  nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 3rem;border-bottom:1px solid var(--border);background:var(--nav-bg);backdrop-filter:blur(4px);position:sticky;top:0;z-index:100;transition:background 0.3s,border-color 0.3s;}
-  .nav-left{display:flex;align-items:center;gap:1.5rem;}
-  .nav-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;color:var(--rose);cursor:pointer;transition:color 0.3s;}
-  .nav-links{display:flex;gap:2rem;list-style:none;}
-  .nav-links button{background:none;border:none;cursor:pointer;font-family:'Lora',serif;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-mid);transition:color 0.2s;padding:0;}
-  .nav-links button:hover,.nav-links button.active{color:var(--rose);}
-  .nav-links button.active{border-bottom:1px solid var(--rose);padding-bottom:2px;}
-  .nav-right{display:flex;align-items:center;}
+/* BUTTONS */
+.btn-rose{display:inline-flex;align-items:center;padding:0.45rem 1rem;background:var(--rose);color:#fff;text-decoration:none;font-size:0.53rem;letter-spacing:0.1em;text-transform:uppercase;border-radius:2px;border:none;cursor:pointer;font-family:'Lora',serif;transition:background 0.2s,transform 0.2s;}
+.btn-rose:hover{background:var(--rose-deep);transform:translateY(-1px);}
+.btn-ghost{display:inline-flex;align-items:center;padding:0.45rem 1rem;border:1px solid var(--blush);color:var(--rose);text-decoration:none;font-size:0.53rem;letter-spacing:0.1em;text-transform:uppercase;border-radius:2px;background:none;cursor:pointer;font-family:'Lora',serif;transition:border-color 0.2s,background 0.2s;}
+.btn-ghost:hover{border-color:var(--rose);background:var(--blush-pale);}
+.social-link{display:inline-flex;align-items:center;padding:0.2rem 0.5rem;border:1px solid var(--blush);border-radius:2px;font-size:0.48rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--rose);text-decoration:none;transition:background 0.2s,border-color 0.2s;}
+.social-link:hover{background:var(--blush-pale);border-color:var(--rose);}
 
-  /* DARK MODE TOGGLE */
-  .theme-toggle{background:none;border:1px solid var(--border);border-radius:50%;width:38px;height:38px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s,background 0.2s;color:var(--text-mid);}
-  .theme-toggle:hover{border-color:var(--rose);background:var(--blush-pale);}
-  .theme-toggle svg{width:18px;height:18px;transition:opacity 0.2s;}
-  .icon-sun{display:none;}
-  .icon-moon{display:block;}
-  body.dark .icon-sun{display:block;}
-  body.dark .icon-moon{display:none;}
+/* HOME HERO */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:72vh;align-items:center;padding:2.5rem 2rem 2rem;}
+.hero-text{padding-right:2rem;}
+.hero-eyebrow{font-size:0.48rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.4rem;}
+.hero-eyebrow::before{content:'';display:inline-block;width:1rem;height:1px;background:var(--blush);}
+h1{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,2.8vw,2.4rem);font-weight:400;line-height:1.12;color:var(--text-dark);margin-bottom:0.8rem;}
+h1 em{font-style:italic;color:var(--rose);}
+.hero-bio{font-size:0.6rem;line-height:1.85;color:var(--text-mid);margin-bottom:1.2rem;}
+.cta-row{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:1rem;}
+.social-row{display:flex;gap:0.37rem;flex-wrap:wrap;}
+.hero-illustration{display:flex;align-items:center;justify-content:center;}
+.hero-frame{width:100%;max-width:200px;height:250px;border:1px solid var(--blush);border-radius:3px;background:var(--blush-pale);position:relative;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;}
+.hero-frame::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,#fce8e8,#f5d8c8);opacity:0.45;}
+body.dark .hero-frame::before{background:linear-gradient(160deg,#3a1f24,#2a1810);opacity:0.6;}
+.placeholder-avatar{width:88px;height:88px;border-radius:50%;background:rgba(255,255,255,0.7);border:1.5px solid var(--blush);position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:0.47rem;color:var(--rose);text-align:center;font-style:italic;z-index:2;}
+body.dark .placeholder-avatar{background:rgba(40,20,24,0.7);}
+.hero-frame-caption{position:relative;z-index:2;padding:0.6rem 0.9rem;width:100%;background:rgba(253,246,240,0.9);border-top:1px solid var(--blush);text-align:center;}
+body.dark .hero-frame-caption{background:rgba(30,21,24,0.92);}
+.hero-frame-caption span{font-family:'Playfair Display',serif;font-size:0.52rem;font-style:italic;color:var(--rose);}
+.corner-sprig{position:absolute;top:-7px;right:-7px;opacity:0.7;}
 
-  /* PAGES */
-  .page{display:none;animation:pageIn 0.4s ease forwards;}
-  .page.visible{display:block;}
-  @keyframes pageIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+/* STATS */
+.stats-row{display:flex;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--stats-bg);}
+.stat{flex:1;padding:1rem;text-align:center;border-right:1px solid var(--border);}
+.stat:last-child{border-right:none;}
+.stat-number{font-family:'Playfair Display',serif;font-size:1.33rem;color:var(--rose);display:block;margin-bottom:0.15rem;}
+.stat-label{font-size:0.45rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-light);}
 
-  /* SHARED */
-  .section{padding:4.5rem 3rem;}
-  .section-header{display:flex;align-items:center;gap:1.5rem;margin-bottom:3rem;}
-  .section-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:var(--text-dark);white-space:nowrap;transition:color 0.3s;}
-  .section-line{flex:1;height:1px;background:var(--section-header-border);}
-  .section-tag{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-light);white-space:nowrap;}
-  .subsection-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-style:italic;color:var(--text-mid);margin-bottom:1.5rem;margin-top:2.5rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);transition:color 0.3s,border-color 0.3s;}
-  .subsection-title:first-child{margin-top:0;}
+/* HOME PREVIEW */
+.home-preview{padding:2.5rem 2rem;background:var(--preview-bg);border-top:1px solid var(--border);}
+.preview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;}
+.preview-card{background:var(--card-bg);border:1px solid var(--border);border-radius:3px;padding:0.9rem;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;}
+.preview-card:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(194,107,122,0.1);}
+.preview-icon{font-size:1rem;margin-bottom:0.5rem;}
+.preview-label{font-family:'Playfair Display',serif;font-size:0.7rem;font-style:italic;color:var(--text-dark);margin-bottom:0.2rem;}
+.preview-sub{font-size:0.52rem;color:var(--text-light);}
 
-  /* BUTTONS */
-  .btn-rose{display:inline-flex;align-items:center;gap:0.5rem;padding:0.72rem 1.7rem;background:var(--rose);color:#fff;text-decoration:none;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;border-radius:2px;transition:background 0.2s,transform 0.2s;border:none;cursor:pointer;font-family:'Lora',serif;}
-  .btn-rose:hover{background:var(--rose-deep);transform:translateY(-1px);}
-  .btn-ghost{display:inline-flex;align-items:center;padding:0.72rem 1.7rem;border:1px solid var(--blush);color:var(--rose);text-decoration:none;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;border-radius:2px;transition:border-color 0.2s,background 0.2s;background:none;cursor:pointer;font-family:'Lora',serif;}
-  .btn-ghost:hover{border-color:var(--rose);background:var(--blush-pale);}
-  .social-link{display:inline-flex;padding:0.32rem 0.85rem;border:1px solid var(--blush);border-radius:2px;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--rose);text-decoration:none;transition:background 0.2s,border-color 0.2s;}
-  .social-link:hover{background:var(--blush-pale);border-color:var(--rose);}
+/* GAMES */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.87rem;}
+.project-card{background:var(--card-bg);border:1px solid var(--border);border-radius:3px;overflow:hidden;transition:transform 0.25s,box-shadow 0.25s;}
+.project-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(194,107,122,0.1);}
+.project-thumb{height:83px;display:flex;align-items:center;justify-content:center;}
+.pt-pink{background:#fce8ec;} .pt-purple{background:#f0e8f5;} .pt-sage{background:#e8f0ee;} .pt-blue{background:#e8edf5;} .pt-amber{background:#f5ede8;} .pt-teal{background:#e8f5f2;}
+body.dark .pt-pink{background:#2e1820;} body.dark .pt-purple{background:#201828;} body.dark .pt-sage{background:#182018;} body.dark .pt-blue{background:#181c28;} body.dark .pt-amber{background:#281e14;} body.dark .pt-teal{background:#142020;}
+.project-body{padding:0.63rem 0.77rem 0.77rem;}
+.project-tag{font-size:0.43rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--rose);margin-bottom:0.2rem;}
+.project-name{font-family:'Playfair Display',serif;font-size:0.67rem;color:var(--text-dark);margin-bottom:0.15rem;}
+.project-role{font-size:0.5rem;font-style:italic;color:var(--text-light);margin-bottom:0.28rem;}
+.award-badge{display:inline-flex;align-items:center;font-size:0.45rem;color:#8a6800;background:#fdf5d8;border:1px solid #e8d47a;border-radius:2px;padding:0.1rem 0.35rem;margin-bottom:0.37rem;}
+body.dark .award-badge{color:#e8c840;background:#2a2408;border-color:#6a5800;}
+.project-desc{font-size:0.53rem;line-height:1.65;color:var(--text-mid);margin-bottom:0.53rem;}
+.project-links{display:flex;gap:0.57rem;font-size:0.47rem;letter-spacing:0.08em;text-transform:uppercase;flex-wrap:wrap;}
+.project-links a{color:var(--rose);text-decoration:none;border-bottom:1px solid var(--blush);padding-bottom:1px;}
+.project-links a:hover{border-color:var(--rose);}
+.page-hero{background:var(--games-hero-bg);border-bottom:1px solid var(--border);padding:1.8rem 2rem 1.5rem;}
+.page-hero h2{font-family:'Playfair Display',serif;font-size:1.27rem;font-weight:400;margin-bottom:0.5rem;color:var(--text-dark);}
+.page-hero p{font-size:0.6rem;line-height:1.8;color:var(--text-mid);max-width:540px;}
+.hero-links{display:flex;gap:0.5rem;margin-top:0.87rem;flex-wrap:wrap;}
 
-  /* HOME */
-  .hero{display:grid;grid-template-columns:1fr 1fr;min-height:80vh;align-items:center;padding:4rem 3rem 3rem;}
-  .hero-text{padding-right:3rem;}
-  .hero-eyebrow{font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.6rem;}
-  .hero-eyebrow::before{content:'';display:inline-block;width:24px;height:1px;background:var(--blush);}
-  h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:400;line-height:1.12;color:var(--text-dark);margin-bottom:1.4rem;transition:color 0.3s;}
-  h1 em{font-style:italic;color:var(--rose);}
-  .hero-bio{font-size:0.97rem;line-height:1.85;color:var(--text-mid);max-width:420px;margin-bottom:2rem;}
-  .cta-row{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.8rem;}
-  .social-row{display:flex;gap:0.6rem;flex-wrap:wrap;}
-  .hero-illustration{display:flex;align-items:center;justify-content:center;height:460px;position:relative;}
-  .hero-frame{width:310px;height:390px;border:1px solid var(--blush);border-radius:3px;background:var(--hero-frame-bg);position:relative;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;transition:background 0.3s,border-color 0.3s;}
-  .hero-frame::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,#fce8e8 0%,#f5d8c8 100%);opacity:0.2;}
-  body.dark .hero-frame::before{background:linear-gradient(160deg,#3a1e28 0%,#2a1810 100%);opacity:0.4;}
-  .placeholder-avatar{width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,0.1);border:1.5px solid var(--blush);position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:0.75rem;color:var(--rose);text-align:center;font-style:italic;z-index:2;}
-  .hero-frame-caption{position:relative;z-index:2;padding:1rem 1.4rem;width:100%;background:var(--nav-bg);border-top:1px solid var(--blush);text-align:center;transition:background 0.3s;}
-  .hero-frame-caption span{font-family:'Playfair Display',serif;font-size:0.82rem;font-style:italic;color:var(--rose);}
-  .corner-sprig{position:absolute;top:-10px;right:-10px;opacity:0.7;}
+/* ABOUT */
+.about-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:2.5rem;align-items:start;}
+.about-text p{font-size:0.62rem;line-height:1.9;color:var(--text-mid);margin-bottom:0.75rem;}
+.about-aside{border-left:1px solid var(--blush);padding-left:1.5rem;}
+.aside-heading{font-family:'Playfair Display',serif;font-size:0.55rem;font-style:italic;color:var(--rose);margin-bottom:0.55rem;letter-spacing:0.05em;}
+.aside-list{list-style:none;display:flex;flex-direction:column;gap:0.35rem;margin-bottom:0.9rem;}
+.aside-list li{font-size:0.55rem;color:var(--text-mid);display:flex;align-items:baseline;gap:0.3rem;}
+.aside-list li::before{content:'·';color:var(--blush-mid);font-size:1.2em;}
+.aside-list a{color:var(--rose);text-decoration:none;}
+.cert-row{display:flex;flex-direction:column;gap:0.43rem;margin-top:0.3rem;}
+.cert-item{background:var(--card-bg);border:1px solid var(--border);border-radius:2px;padding:0.43rem 0.57rem;}
+.cert-name{font-size:0.53rem;color:var(--text-dark);margin-bottom:0.08rem;}
+.cert-by{font-size:0.45rem;color:var(--text-light);}
+.skills-section{background:var(--skills-bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.27rem;}
+.skill-group-title{font-family:'Playfair Display',serif;font-size:0.6rem;font-style:italic;color:var(--rose);margin-bottom:0.55rem;}
+.skill-pills{display:flex;flex-wrap:wrap;gap:0.28rem;}
+.pill{padding:0.17rem 0.47rem;background:var(--pill-bg);border:1px solid var(--blush);border-radius:2px;font-size:0.5rem;color:var(--text-mid);}
 
-  .stats-row{display:flex;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--stats-bg);transition:background 0.3s;}
-  .stat{flex:1;padding:1.6rem 1.5rem;text-align:center;border-right:1px solid var(--border);}
-  .stat:last-child{border-right:none;}
-  .stat-number{font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:400;color:var(--rose);display:block;margin-bottom:0.25rem;}
-  .stat-label{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-light);}
-
-  .home-preview{padding:4rem 3rem;background:var(--preview-bg);border-top:1px solid var(--border);transition:background 0.3s;}
-  .preview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
-  .preview-card{background:var(--card-bg);border:1px solid var(--border);border-radius:3px;padding:1.4rem 1.5rem;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s,background 0.3s;}
-  .preview-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(194,107,122,0.12);}
-  .preview-icon{font-size:1.4rem;margin-bottom:0.8rem;}
-  .preview-label{font-family:'Playfair Display',serif;font-size:1.05rem;font-style:italic;color:var(--text-dark);margin-bottom:0.35rem;transition:color 0.3s;}
-  .preview-sub{font-size:0.8rem;color:var(--text-light);}
-
-  /* GAMES */
-  .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
-  .project-card{background:var(--card-bg);border:1px solid var(--border);border-radius:3px;overflow:hidden;transition:transform 0.25s,box-shadow 0.25s,background 0.3s;}
-  .project-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(194,107,122,0.12);}
-  .project-thumb{height:130px;display:flex;align-items:center;justify-content:center;transition:background 0.3s;}
-  .pt-pink{background:var(--pt-pink);}.pt-purple{background:var(--pt-purple);}.pt-sage{background:var(--pt-sage);}.pt-blue{background:var(--pt-blue);}.pt-amber{background:var(--pt-amber);}.pt-teal{background:var(--pt-teal);}
-  .project-body{padding:1rem 1.2rem 1.2rem;}
-  .project-tag{font-size:0.67rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--rose);margin-bottom:0.35rem;}
-  .project-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:400;color:var(--text-dark);margin-bottom:0.25rem;transition:color 0.3s;}
-  .project-role{font-size:0.75rem;font-style:italic;color:var(--text-light);margin-bottom:0.45rem;}
-  .award-badge{display:inline-flex;align-items:center;font-size:0.68rem;color:#c8a000;background:rgba(200,160,0,0.1);border:1px solid rgba(200,160,0,0.25);border-radius:2px;padding:0.18rem 0.55rem;margin-bottom:0.55rem;}
-  body.dark .award-badge{color:#e8c840;background:rgba(200,160,0,0.12);border-color:rgba(200,160,0,0.2);}
-  .project-desc{font-size:0.8rem;line-height:1.65;color:var(--text-mid);margin-bottom:0.85rem;}
-  .project-links{display:flex;gap:0.9rem;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;flex-wrap:wrap;}
-  .project-links a{color:var(--rose);text-decoration:none;border-bottom:1px solid var(--blush);padding-bottom:1px;transition:border-color 0.2s;}
-  .project-links a:hover{border-color:var(--rose);}
-
-  .page-hero{border-bottom:1px solid var(--border);padding:3rem;background:var(--blush-pale);transition:background 0.3s;}
-  .page-hero h2{font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;margin-bottom:0.8rem;color:var(--text-dark);transition:color 0.3s;}
-  .page-hero p{font-size:0.93rem;line-height:1.8;color:var(--text-mid);max-width:560px;}
-  .page-hero-links{display:flex;gap:0.8rem;margin-top:1.5rem;flex-wrap:wrap;}
-
-  /* ARTWORKS */
-  .artworks-placeholder{padding:4rem 3rem;text-align:center;}
-  .artworks-placeholder p{font-size:0.93rem;color:var(--text-mid);margin-bottom:1.5rem;line-height:1.75;}
-
-  /* ABOUT */
-  .about-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:start;}
-  .about-text p{font-size:0.95rem;line-height:1.9;color:var(--text-mid);margin-bottom:1.1rem;}
-  .about-aside{border-left:1px solid var(--blush);padding-left:2.5rem;transition:border-color 0.3s;}
-  .aside-heading{font-family:'Playfair Display',serif;font-size:0.85rem;font-style:italic;color:var(--rose);margin-bottom:0.9rem;letter-spacing:0.05em;}
-  .aside-list{list-style:none;display:flex;flex-direction:column;gap:0.55rem;margin-bottom:1.5rem;}
-  .aside-list li{font-size:0.83rem;color:var(--text-mid);display:flex;align-items:baseline;gap:0.5rem;}
-  .aside-list li::before{content:'·';color:var(--blush-mid);font-size:1.2em;}
-  .aside-list a{color:var(--rose);text-decoration:none;}
-  .cert-row{display:flex;flex-direction:column;gap:0.7rem;margin-top:0.5rem;}
-  .cert-item{background:var(--cert-bg);border:1px solid var(--border);border-radius:2px;padding:0.7rem 0.9rem;transition:background 0.3s;}
-  .cert-name{font-size:0.82rem;color:var(--text-dark);margin-bottom:0.15rem;transition:color 0.3s;}
-  .cert-by{font-size:0.72rem;color:var(--text-light);}
-  .skills-section{background:var(--skills-bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);transition:background 0.3s;}
-  .skills-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;}
-  .skill-group-title{font-family:'Playfair Display',serif;font-size:0.93rem;font-style:italic;color:var(--rose);margin-bottom:0.9rem;}
-  .skill-pills{display:flex;flex-wrap:wrap;gap:0.45rem;}
-  .pill{padding:0.28rem 0.75rem;background:var(--pill-bg);border:1px solid var(--blush);border-radius:2px;font-size:0.77rem;color:var(--text-mid);transition:background 0.3s,border-color 0.3s;}
-
-  /* CONTACT / FOOTER */
-  .contact-strip{text-align:center;background:var(--contact-bg);border-top:1px solid var(--border);padding:4rem 3rem;transition:background 0.3s;}
-  .contact-strip h2{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:400;margin-bottom:0.9rem;color:var(--text-dark);transition:color 0.3s;}
-  .contact-strip p{font-size:0.92rem;color:var(--text-mid);margin-bottom:2rem;max-width:400px;margin-left:auto;margin-right:auto;line-height:1.75;}
-  .contact-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-  .socials-contact{display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;}
-  .sprig{text-align:center;color:var(--blush-mid);letter-spacing:0.5em;margin-bottom:1rem;opacity:0.6;}
-  footer{padding:1.8rem 3rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);transition:border-color 0.3s;}
-  .footer-name{font-family:'Playfair Display',serif;font-style:italic;color:var(--text-light);font-size:0.87rem;}
-  .footer-links{display:flex;gap:1.5rem;list-style:none;}
-  .footer-links a{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);text-decoration:none;transition:color 0.2s;}
-  .footer-links a:hover{color:var(--rose);}
+/* CONTACT */
+.contact-strip{text-align:center;background:var(--contact-bg);border-top:1px solid var(--border);padding:2.5rem 2rem;}
+.contact-strip h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:400;margin-bottom:0.57rem;color:var(--text-dark);}
+.contact-strip p{font-size:0.6rem;color:var(--text-mid);margin-bottom:1.2rem;max-width:380px;margin-left:auto;margin-right:auto;line-height:1.75;}
+.contact-row{display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap;}
+.socials-contact{display:flex;gap:0.37rem;justify-content:center;flex-wrap:wrap;margin-top:0.9rem;}
+.sprig{color:var(--blush);letter-spacing:0.5em;margin-bottom:0.6rem;}
+footer{padding:1.1rem 2rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);}
+.footer-name{font-family:'Playfair Display',serif;font-style:italic;color:var(--text-light);font-size:0.55rem;}
+.footer-links{display:flex;gap:0.9rem;list-style:none;}
+.footer-links a{font-size:0.45rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);text-decoration:none;}
+.footer-links a:hover{color:var(--rose);}
 </style>
+</head>
+<body>
 
 <nav>
   <div class="nav-left">
     <span class="nav-name" onclick="showPage('home')">Kate Nicole Young</span>
   </div>
-  <ul class="nav-links">
-    <li><button id="nav-home" class="active" onclick="showPage('home')">Home</button></li>
-    <li><button id="nav-games" onclick="showPage('games')">Games</button></li>
-    <li><button id="nav-artworks" onclick="showPage('artworks')">Artworks</button></li>
-    <li><button id="nav-about" onclick="showPage('about')">About</button></li>
-  </ul>
   <div class="nav-right">
-    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
-      <!-- Moon icon (shown in light mode) -->
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-      </svg>
-      <!-- Sun icon (shown in dark mode) -->
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="5"/>
-        <line x1="12" y1="1" x2="12" y2="3"/>
-        <line x1="12" y1="21" x2="12" y2="23"/>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-        <line x1="1" y1="12" x2="3" y2="12"/>
-        <line x1="21" y1="12" x2="23" y2="12"/>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-      </svg>
-    </button>
+    <ul class="nav-links">
+      <li><button id="nav-home" class="active" onclick="showPage('home')">Home</button></li>
+      <li><button id="nav-games" onclick="showPage('games')">Games</button></li>
+      <li><button id="nav-artworks" onclick="showPage('artworks')">Artworks</button></li>
+      <li><button id="nav-about" onclick="showPage('about')">About</button></li>
+    </ul>
+    <button class="theme-toggle" id="theme-btn" onclick="toggleTheme()" title="Toggle dark mode">
+    <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+    <svg id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  </button>
   </div>
 </nav>
 
-<!-- ===================== HOME ===================== -->
+<!-- HOME -->
 <div id="page-home" class="page visible">
   <section class="hero">
     <div class="hero-text">
-      <div class="hero-eyebrow">Game Developer & Digital Artist</div>
+      <div class="hero-eyebrow">Game Developer &amp; Digital Artist</div>
       <h1>Hello! I'm <em>Kate Nicole</em> Young</h1>
       <p class="hero-bio">Welcome! Maligayang pagdating! 欢迎你! Bienvenue!<br><br>I'm a game developer and digital artist studying at De La Salle University — creating memorable, immersive experiences through games, art, and leadership.</p>
       <div class="cta-row">
         <button class="btn-rose" onclick="showPage('games')">View my work</button>
-        <a class="btn-ghost" href="mailto:tigerroseyoung@gmail.com">Get in touch</a>
+        <a class="btn-ghost" href="/cdn-cgi/l/email-protection#2c58454b495e5e435f49554359424b6c4b414d4540024f4341">Get in touch</a>
       </div>
       <div class="social-row">
         <a class="social-link" href="https://github.com/wanl1n">GitHub</a>
@@ -243,14 +201,12 @@
       </div>
     </div>
     <div class="hero-illustration">
-      <div class="hero-frame">
+      <div class="hero-frame" style="position:relative;">
         <div class="placeholder-avatar">your<br>photo<br>here</div>
-        <svg class="corner-sprig" width="90" height="90" viewBox="0 0 90 90" fill="none">
+        <svg class="corner-sprig" style="position:absolute;top:-7px;right:-7px;opacity:0.7;" width="55" height="55" viewBox="0 0 90 90" fill="none">
           <path d="M78 12 Q60 34 44 46 Q28 58 12 78" stroke="#e8a0a0" stroke-width="1.3" fill="none"/>
           <ellipse cx="62" cy="24" rx="8" ry="4.5" fill="#f2c4c4" opacity="0.7" transform="rotate(-30 62 24)"/>
           <ellipse cx="48" cy="38" rx="7" ry="4" fill="#f2c4c4" opacity="0.6" transform="rotate(-14 48 38)"/>
-          <ellipse cx="33" cy="55" rx="6" ry="3.5" fill="#f2c4c4" opacity="0.5" transform="rotate(10 33 55)"/>
-          <circle cx="80" cy="10" r="4" fill="#c26b7a" opacity="0.35"/>
           <circle cx="66" cy="22" r="3.5" fill="#f2c4c4" opacity="0.5"/>
         </svg>
         <div class="hero-frame-caption"><span>DLSU Game Dev · Artist · Leader</span></div>
@@ -266,26 +222,14 @@
   </div>
 
   <div class="home-preview">
-    <div class="section-header" style="margin-bottom:2rem;">
+    <div class="section-header" style="margin-bottom:1.2rem;">
       <h2 class="section-title">Explore my work</h2>
       <div class="section-line"></div>
     </div>
     <div class="preview-grid">
-      <div class="preview-card" onclick="showPage('games')">
-        <div class="preview-icon">🎮</div>
-        <div class="preview-label">Games</div>
-        <div class="preview-sub">Unity, Unreal Engine, OpenGL projects</div>
-      </div>
-      <div class="preview-card" onclick="showPage('artworks')">
-        <div class="preview-icon">🎨</div>
-        <div class="preview-label">Artworks</div>
-        <div class="preview-sub">Digital art, illustrations & design</div>
-      </div>
-      <div class="preview-card" onclick="showPage('about')">
-        <div class="preview-icon">🌿</div>
-        <div class="preview-label">About</div>
-        <div class="preview-sub">Background, skills & certifications</div>
-      </div>
+      <div class="preview-card" onclick="showPage('games')"><div class="preview-icon">🎮</div><div class="preview-label">Games</div><div class="preview-sub">Unity, Unreal Engine, OpenGL projects</div></div>
+      <div class="preview-card" onclick="showPage('artworks')"><div class="preview-icon">🎨</div><div class="preview-label">Artworks</div><div class="preview-sub">Digital art, illustrations &amp; design</div></div>
+      <div class="preview-card" onclick="showPage('about')"><div class="preview-icon">🌿</div><div class="preview-label">About</div><div class="preview-sub">Background, skills &amp; certifications</div></div>
     </div>
   </div>
 
@@ -294,7 +238,7 @@
     <h2>Let's make something together</h2>
     <p>Whether you have a project in mind or just want to say hello — I respond to every message.</p>
     <div class="contact-row">
-      <a class="btn-rose" href="mailto:tigerroseyoung@gmail.com">tigerroseyoung@gmail.com</a>
+      <a class="btn-rose" href="/cdn-cgi/l/email-protection#710518161403031e0214081e041f1631161c10181d5f121e1c"><span class="__cf_email__" data-cfemail="76021f111304041905130f1903181136111b171f1a5815191b">[email&#160;protected]</span></a>
       <a class="btn-ghost" href="https://github.com/wanl1n">View GitHub</a>
     </div>
     <div class="socials-contact">
@@ -305,23 +249,15 @@
       <a class="social-link" href="https://soundcloud.com/wanlin_yang">SoundCloud</a>
     </div>
   </div>
-  <footer>
-    <span class="footer-name">© 2025 Kate Nicole Young</span>
-    <ul class="footer-links">
-      <li><a href="https://github.com/wanl1n">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/young-kate-nicole/">LinkedIn</a></li>
-      <li><a href="https://bunnsp.itch.io">Itch.io</a></li>
-      <li><a href="https://linktr.ee/kate_wanlin">Linktree</a></li>
-    </ul>
-  </footer>
+  <footer><span class="footer-name">© 2025 Kate Nicole Young</span><ul class="footer-links"><li><a href="https://github.com/wanl1n">GitHub</a></li><li><a href="https://www.linkedin.com/in/young-kate-nicole/">LinkedIn</a></li><li><a href="https://bunnsp.itch.io">Itch.io</a></li><li><a href="https://linktr.ee/kate_wanlin">Linktree</a></li></ul></footer>
 </div>
 
-<!-- ===================== GAMES ===================== -->
+<!-- GAMES -->
 <div id="page-games" class="page">
   <div class="page-hero">
     <h2>Games</h2>
     <p>A collection of game projects built with Unity, Unreal Engine 5, and OpenGL — from major award-winning releases to game jam entries and prototypes.</p>
-    <div class="page-hero-links">
+    <div class="hero-links">
       <a class="btn-rose" href="https://github.com/wanl1n?tab=repositories">GitHub repos</a>
       <a class="btn-ghost" href="https://bunnsp.itch.io">Itch.io</a>
       <a class="btn-ghost" href="https://linktr.ee/kate_wanlin">Linktree</a>
@@ -330,185 +266,52 @@
   <section class="section">
     <div class="subsection-title">Major Projects</div>
     <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-thumb pt-pink"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="8" y="12" width="36" height="28" rx="3" stroke="#c26b7a" stroke-width="1.2" fill="none"/><path d="M16 26 L22 32 L36 18" stroke="#c26b7a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="40" cy="12" r="5" fill="#f2c4c4" opacity="0.5"/><path d="M37 9 Q40 6 43 9" stroke="#c26b7a" stroke-width="0.9" fill="none"/></svg></div>
-        <div class="project-body">
-          <div class="project-tag">Unity · 2D Puzzle</div>
-          <div class="project-name">Largo's Labyrinth</div>
-          <div class="project-role">Lead Developer & Scrum Master</div>
-          <div class="award-badge">★ Top Voter's Choice · Level Up 121</div>
-          <p class="project-desc">2D puzzle escape room with rhythm mechanics. Finalist at Indie Games Group PH for Excellence in Audio Design.</p>
-          <div class="project-links"><a href="https://sites.google.com/dlsu.edu.ph/largoslabyrinth/home">Project site</a></div>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb pt-purple"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="8" y="8" width="36" height="36" rx="3" fill="none" stroke="#9b7fc0" stroke-width="1.2"/><circle cx="26" cy="20" r="6" fill="none" stroke="#9b7fc0" stroke-width="1"/><path d="M14 38 Q18 30 26 30 Q34 30 38 38" fill="none" stroke="#9b7fc0" stroke-width="1.2"/><path d="M20 14 Q26 8 32 14" stroke="#c26b7a" stroke-width="1" fill="none"/></svg></div>
-        <div class="project-body">
-          <div class="project-tag">Unity · 3D Horror</div>
-          <div class="project-name">Lights Off</div>
-          <div class="project-role">Programmer & Marketing Manager</div>
-          <div class="award-badge">★ Top Voter's Choice · Scorch Jam</div>
-          <p class="project-desc">3D horror FPS set in an underground facility. Beat 12 other games at the Scorch Studios jam.</p>
-          <div class="project-links"><a href="https://sites.google.com/dlsu.edu.ph/lightsoff-sector5">Project site</a><a href="https://www.facebook.com/share/v/175UVbu9ew/">Trailer</a></div>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb pt-sage"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="8" y="16" width="36" height="24" rx="3" fill="none" stroke="#7a8c6e" stroke-width="1.2"/><circle cx="20" cy="28" r="5" fill="#b5c4a8" opacity="0.6"/><circle cx="32" cy="28" r="5" fill="#b5c4a8" opacity="0.6"/></svg></div>
-        <div class="project-body">
-          <div class="project-tag">Unity · 2D Platformer</div>
-          <div class="project-name">Alumpihit</div>
-          <div class="project-role">Game Artist</div>
-          <div class="award-badge">★ 1st Place · SALINLAHI EVOLUTION V3.0</div>
-          <p class="project-desc">Retro 8-bit mobile platformer honoring Filipino scientists. Won First Place at NAST & Philippine Science Heritage Center.</p>
-          <div class="project-links"><a href="mailto:tigerroseyoung@gmail.com">Request a copy</a><a href="https://www.facebook.com/share/p/1DYYzdPQZK/">NAST announcement</a></div>
-        </div>
-      </div>
+      <div class="project-card"><div class="project-thumb pt-pink"><svg width="34" height="34" viewBox="0 0 52 52" fill="none"><rect x="8" y="12" width="36" height="28" rx="3" stroke="#c26b7a" stroke-width="1.2" fill="none"/><path d="M16 26 L22 32 L36 18" stroke="#c26b7a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="40" cy="12" r="5" fill="#f2c4c4" opacity="0.5"/></svg></div><div class="project-body"><div class="project-tag">Unity · 2D Puzzle</div><div class="project-name">Largo's Labyrinth</div><div class="project-role">Lead Developer &amp; Scrum Master</div><div class="award-badge">★ Top Voter's Choice · Level Up 121</div><p class="project-desc">2D puzzle escape room with rhythm mechanics. Finalist at Indie Games Group PH for Excellence in Audio Design.</p><div class="project-links"><a href="https://sites.google.com/dlsu.edu.ph/largoslabyrinth/home">Project site</a></div></div></div>
+      <div class="project-card"><div class="project-thumb pt-purple"><svg width="34" height="34" viewBox="0 0 52 52" fill="none"><rect x="8" y="8" width="36" height="36" rx="3" fill="none" stroke="#9b7fc0" stroke-width="1.2"/><circle cx="26" cy="20" r="6" fill="none" stroke="#9b7fc0" stroke-width="1"/><path d="M14 38 Q18 30 26 30 Q34 30 38 38" fill="none" stroke="#9b7fc0" stroke-width="1.2"/></svg></div><div class="project-body"><div class="project-tag">Unity · 3D Horror</div><div class="project-name">Lights Off</div><div class="project-role">Programmer &amp; Marketing Manager</div><div class="award-badge">★ Top Voter's Choice · Scorch Jam</div><p class="project-desc">3D horror FPS set in an underground facility. Beat 12 other games at the Scorch Studios jam.</p><div class="project-links"><a href="https://sites.google.com/dlsu.edu.ph/lightsoff-sector5">Project site</a><a href="https://www.facebook.com/share/v/175UVbu9ew/">Trailer</a></div></div></div>
+      <div class="project-card"><div class="project-thumb pt-sage"><svg width="34" height="34" viewBox="0 0 52 52" fill="none"><rect x="8" y="16" width="36" height="24" rx="3" fill="none" stroke="#7a8c6e" stroke-width="1.2"/><circle cx="20" cy="28" r="5" fill="#b5c4a8" opacity="0.6"/><circle cx="32" cy="28" r="5" fill="#b5c4a8" opacity="0.6"/></svg></div><div class="project-body"><div class="project-tag">Unity · 2D Platformer</div><div class="project-name">Alumpihit</div><div class="project-role">Game Artist</div><div class="award-badge">★ 1st Place · SALINLAHI EVOLUTION V3.0</div><p class="project-desc">Retro 8-bit mobile platformer honoring Filipino scientists. Won First Place at NAST &amp; Philippine Science Heritage Center.</p><div class="project-links"><a href="/cdn-cgi/l/email-protection#2c58454b495e5e435f49554359424b6c4b414d4540024f4341">Request a copy</a><a href="https://www.facebook.com/share/p/1DYYzdPQZK/">NAST announcement</a></div></div></div>
     </div>
-
     <div class="subsection-title">Prototypes</div>
     <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-thumb pt-amber"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><path d="M26 12 Q36 18 36 28 Q36 38 26 42 Q16 38 16 28 Q16 18 26 12Z" fill="none" stroke="#c4a882" stroke-width="1.2"/><circle cx="26" cy="28" r="5" fill="#c4a882" opacity="0.3"/></svg></div>
-        <div class="project-body">
-          <div class="project-tag">Unity · Serious Game</div>
-          <div class="project-name">The Birds and The Trees</div>
-          <div class="project-role">Programmer & Game Artist</div>
-          <p class="project-desc">PC survival top-down game about deforestation. NavMesh AI animal behavior, hand-made sprite sheets.</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb pt-blue"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="10" y="16" width="32" height="22" rx="3" fill="none" stroke="#7a9cc0" stroke-width="1.2"/><path d="M18 26 L24 32 L34 20" stroke="#7a9cc0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="project-body">
-          <div class="project-tag">Unity · Mobile AR</div>
-          <div class="project-name">LC Maps</div>
-          <div class="project-role">AR Programmer & UI Designer</div>
-          <p class="project-desc">Mobile AR map of DLSU Laguna Campus using Vuforia and Unity UI Document.</p>
-          <div class="project-links"><a href="https://bunnsp.itch.io/lc-maps">Itch.io</a></div>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb pt-teal"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="12" y="14" width="28" height="26" rx="3" fill="none" stroke="#5a9c8c" stroke-width="1.2"/><circle cx="26" cy="24" r="5" fill="#a8d4cc" opacity="0.5"/><path d="M18 34 Q22 28 26 28 Q30 28 34 34" fill="none" stroke="#5a9c8c" stroke-width="1"/></svg></div>
-        <div class="project-body">
-          <div class="project-tag">Unity · Mobile</div>
-          <div class="project-name">The Perfect Partner</div>
-          <div class="project-role">Cutscene Artist & Project Manager</div>
-          <p class="project-desc">Live2D mobile dating simulator with customizable love interest characteristics and appearance.</p>
-          <div class="project-links"><a href="https://youtube.com/shorts/Rpc617h2pHM?feature=share">Video demo</a></div>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb pt-purple"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="10" y="14" width="32" height="26" rx="3" fill="none" stroke="#9b7fc0" stroke-width="1.2"/><rect x="16" y="22" width="8" height="10" rx="2" fill="#d4b8e8" opacity="0.5"/><rect x="28" y="22" width="8" height="5" rx="1" fill="#9b7fc0" opacity="0.4"/></svg></div>
-        <div class="project-body">
-          <div class="project-tag">Unity · Mobile D&D</div>
-          <div class="project-name">Baldoor's Door</div>
-          <div class="project-role">Programmer, Designer, UI Dev & VFX</div>
-          <p class="project-desc">Baldur's Gate 3-inspired mobile adventure where choices matter. Journal/quest system, addressables, and ads.</p>
-        </div>
-      </div>
+      <div class="project-card"><div class="project-thumb pt-amber"><svg width="34" height="34" viewBox="0 0 52 52" fill="none"><path d="M26 12 Q36 18 36 28 Q36 38 26 42 Q16 38 16 28 Q16 18 26 12Z" fill="none" stroke="#c4a882" stroke-width="1.2"/></svg></div><div class="project-body"><div class="project-tag">Unity · Serious Game</div><div class="project-name">The Birds and The Trees</div><div class="project-role">Programmer &amp; Game Artist</div><p class="project-desc">PC survival top-down game about deforestation. NavMesh AI animal behavior, hand-made sprite sheets.</p></div></div>
+      <div class="project-card"><div class="project-thumb pt-blue"><svg width="34" height="34" viewBox="0 0 52 52" fill="none"><rect x="10" y="16" width="32" height="22" rx="3" fill="none" stroke="#7a9cc0" stroke-width="1.2"/><path d="M18 26 L24 32 L34 20" stroke="#7a9cc0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="project-body"><div class="project-tag">Unity · Mobile AR</div><div class="project-name">LC Maps</div><div class="project-role">AR Programmer &amp; UI Designer</div><p class="project-desc">Mobile AR map of DLSU Laguna Campus using Vuforia and Unity UI Document.</p><div class="project-links"><a href="https://bunnsp.itch.io/lc-maps">Itch.io</a></div></div></div>
+      <div class="project-card"><div class="project-thumb pt-teal"><svg width="34" height="34" viewBox="0 0 52 52" fill="none"><rect x="12" y="14" width="28" height="26" rx="3" fill="none" stroke="#5a9c8c" stroke-width="1.2"/><circle cx="26" cy="24" r="5" fill="#a8d4cc" opacity="0.5"/></svg></div><div class="project-body"><div class="project-tag">Unity · Mobile</div><div class="project-name">The Perfect Partner</div><div class="project-role">Cutscene Artist &amp; Project Manager</div><p class="project-desc">Live2D mobile dating simulator with customizable love interest characteristics and appearance.</p><div class="project-links"><a href="https://youtube.com/shorts/Rpc617h2pHM?feature=share">Video demo</a></div></div></div>
+      <div class="project-card"><div class="project-thumb pt-purple"><svg width="34" height="34" viewBox="0 0 52 52" fill="none"><rect x="10" y="14" width="32" height="26" rx="3" fill="none" stroke="#9b7fc0" stroke-width="1.2"/><rect x="16" y="22" width="8" height="10" rx="2" fill="#d4b8e8" opacity="0.5"/></svg></div><div class="project-body"><div class="project-tag">Unity · Mobile D&amp;D</div><div class="project-name">Baldoor's Door</div><div class="project-role">Programmer, Designer, UI Dev &amp; VFX</div><p class="project-desc">Baldur's Gate 3-inspired mobile adventure. Journal/quest system, addressables, ads, and UI Toolkit.</p></div></div>
     </div>
-
     <div class="subsection-title">Game Jams</div>
     <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-thumb pt-blue"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="16" fill="none" stroke="#7a9cc0" stroke-width="1.2"/><circle cx="26" cy="26" r="6" fill="#b5c8e8" opacity="0.4"/></svg></div>
-        <div class="project-body">
-          <div class="project-tag">Global Game Jam 2025 · Unity</div>
-          <div class="project-name">John Pork's Adventures: Under The Sea</div>
-          <div class="project-role">Overseer & UI Designer</div>
-          <p class="project-desc">Theme: Bubble. Created with Unity Game Engine.</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb pt-pink"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="12" y="16" width="28" height="22" rx="3" fill="none" stroke="#c26b7a" stroke-width="1.2"/><path d="M20 30 Q26 24 32 30" stroke="#c26b7a" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg></div>
-        <div class="project-body">
-          <div class="project-tag">Global Game Jam 2024 · Unity</div>
-          <div class="project-name">Detention Slip</div>
-          <div class="project-role">Artist & Co-designer</div>
-          <p class="project-desc">Theme: Make Me Laugh. Created with Unity Game Engine.</p>
-        </div>
-      </div>
+      <div class="project-card"><div class="project-thumb pt-blue"><svg width="34" height="34" viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="16" fill="none" stroke="#7a9cc0" stroke-width="1.2"/><circle cx="26" cy="26" r="6" fill="#b5c8e8" opacity="0.4"/></svg></div><div class="project-body"><div class="project-tag">Global Game Jam 2025</div><div class="project-name">John Pork's Adventures: Under The Sea</div><div class="project-role">Overseer &amp; UI Designer</div><p class="project-desc">Theme: Bubble. Created with Unity Game Engine.</p></div></div>
+      <div class="project-card"><div class="project-thumb pt-pink"><svg width="34" height="34" viewBox="0 0 52 52" fill="none"><rect x="12" y="16" width="28" height="22" rx="3" fill="none" stroke="#c26b7a" stroke-width="1.2"/><path d="M20 30 Q26 24 32 30" stroke="#c26b7a" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg></div><div class="project-body"><div class="project-tag">Global Game Jam 2024</div><div class="project-name">Detention Slip</div><div class="project-role">Artist &amp; Co-designer</div><p class="project-desc">Theme: Make Me Laugh. Created with Unity Game Engine.</p></div></div>
     </div>
-
-    <div class="subsection-title">Unreal Engine & Other</div>
+    <div class="subsection-title">Unreal Engine &amp; Other</div>
     <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-thumb pt-amber"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="8" y="14" width="36" height="26" rx="3" fill="none" stroke="#c4a882" stroke-width="1.2"/><rect x="14" y="22" width="10" height="10" rx="2" fill="#c4a882" opacity="0.3"/><rect x="28" y="22" width="10" height="5" rx="1" fill="#c4a882" opacity="0.4"/></svg></div>
-        <div class="project-body">
-          <div class="project-tag">Unreal Engine 5</div>
-          <div class="project-name">Anno 2024</div>
-          <div class="project-role">Solo Developer</div>
-          <p class="project-desc">Simplified recreation of Anno 1800's resource management mechanic in UE5.</p>
-          <div class="project-links"><a href="https://github.com/wanl1n/Anno2024">GitHub</a></div>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb pt-pink"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="10" y="12" width="32" height="28" rx="3" fill="none" stroke="#c26b7a" stroke-width="1.2"/><rect x="16" y="20" width="8" height="12" rx="1.5" fill="#f2c4c4" opacity="0.5"/><rect x="28" y="20" width="8" height="5" rx="1" fill="#e8a0a0" opacity="0.4"/></svg></div>
-        <div class="project-body">
-          <div class="project-tag">Unreal Engine 5 · Interior</div>
-          <div class="project-name">Room 3.1415 — Kato Apartments</div>
-          <div class="project-role">Environment Artist</div>
-          <p class="project-desc">Pink Nordic-inspired apartment with material manipulation, Niagara, PBR, and post-processing in UE5.</p>
-          <div class="project-links"><a href="https://www.facebook.com/watch/?v=1122817658926405">Watch video</a></div>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb pt-sage"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="12" y="18" width="28" height="20" rx="3" fill="none" stroke="#7a8c6e" stroke-width="1.2"/><circle cx="20" cy="28" r="4" fill="#b5c4a8" opacity="0.5"/><path d="M26 26 L32 26 M26 30 L30 30" stroke="#7a8c6e" stroke-width="1" stroke-linecap="round"/></svg></div>
-        <div class="project-body">
-          <div class="project-tag">OpenGL · C++</div>
-          <div class="project-name">Toy Tank Adventure</div>
-          <div class="project-role">Solo Developer</div>
-          <p class="project-desc">3D nighttime backyard exploration as a toy tank, with custom night-vision pixel shader in GLSL.</p>
-          <div class="project-links"><a href="https://bunnsp.itch.io/toy-tank-adventure">Itch.io</a></div>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="project-thumb pt-teal"><svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="10" y="14" width="32" height="26" rx="3" fill="none" stroke="#5a9c8c" stroke-width="1.2"/><circle cx="22" cy="28" r="4" fill="#a8d4cc" opacity="0.4"/><circle cx="32" cy="28" r="4" fill="#a8d4cc" opacity="0.4"/></svg></div>
-        <div class="project-body">
-          <div class="project-tag">Unity · C# · SQL</div>
-          <div class="project-name">Animal Crossing Buddy</div>
-          <div class="project-role">Solo Developer</div>
-          <p class="project-desc">Interactive tracker for Animal Crossing: New Horizons players, built with Unity, PHP, and SQL database backend.</p>
-        </div>
-      </div>
+      <div class="project-card"><div class="project-thumb pt-amber"><svg width="34" height="34" viewBox="0 0 52 52" fill="none"><rect x="8" y="14" width="36" height="26" rx="3" fill="none" stroke="#c4a882" stroke-width="1.2"/><rect x="14" y="22" width="10" height="10" rx="2" fill="#c4a882" opacity="0.3"/></svg></div><div class="project-body"><div class="project-tag">Unreal Engine 5</div><div class="project-name">Anno 2024</div><div class="project-role">Solo Developer</div><p class="project-desc">Simplified recreation of Anno 1800's resource management mechanic in UE5.</p><div class="project-links"><a href="https://github.com/wanl1n/Anno2024">GitHub</a></div></div></div>
+      <div class="project-card"><div class="project-thumb pt-pink"><svg width="34" height="34" viewBox="0 0 52 52" fill="none"><rect x="10" y="12" width="32" height="28" rx="3" fill="none" stroke="#c26b7a" stroke-width="1.2"/><rect x="16" y="20" width="8" height="12" rx="1.5" fill="#f2c4c4" opacity="0.5"/></svg></div><div class="project-body"><div class="project-tag">Unreal Engine 5 · Interior</div><div class="project-name">Room 3.1415 — Kato Apartments</div><div class="project-role">Environment Artist</div><p class="project-desc">Pink Nordic-inspired apartment with material manipulation, Niagara, PBR, and post-processing in UE5.</p><div class="project-links"><a href="https://www.facebook.com/watch/?v=1122817658926405">Watch video</a></div></div></div>
+      <div class="project-card"><div class="project-thumb pt-sage"><svg width="34" height="34" viewBox="0 0 52 52" fill="none"><rect x="12" y="18" width="28" height="20" rx="3" fill="none" stroke="#7a8c6e" stroke-width="1.2"/><circle cx="20" cy="28" r="4" fill="#b5c4a8" opacity="0.5"/></svg></div><div class="project-body"><div class="project-tag">OpenGL · C++</div><div class="project-name">Toy Tank Adventure</div><div class="project-role">Solo Developer</div><p class="project-desc">3D nighttime backyard exploration as a toy tank, with custom night-vision pixel shader in GLSL.</p><div class="project-links"><a href="https://bunnsp.itch.io/toy-tank-adventure">Itch.io</a></div></div></div>
+      <div class="project-card"><div class="project-thumb pt-teal"><svg width="34" height="34" viewBox="0 0 52 52" fill="none"><rect x="10" y="14" width="32" height="26" rx="3" fill="none" stroke="#5a9c8c" stroke-width="1.2"/><circle cx="22" cy="28" r="4" fill="#a8d4cc" opacity="0.4"/><circle cx="32" cy="28" r="4" fill="#a8d4cc" opacity="0.4"/></svg></div><div class="project-body"><div class="project-tag">Unity · C# · SQL</div><div class="project-name">Animal Crossing Buddy</div><div class="project-role">Solo Developer</div><p class="project-desc">Interactive tracker for Animal Crossing: New Horizons built with Unity, PHP, and SQL database backend.</p></div></div>
     </div>
   </section>
-  <footer>
-    <span class="footer-name">© 2025 Kate Nicole Young</span>
-    <ul class="footer-links">
-      <li><a href="https://github.com/wanl1n">GitHub</a></li>
-      <li><a href="https://bunnsp.itch.io">Itch.io</a></li>
-      <li><a href="https://linktr.ee/kate_wanlin">Linktree</a></li>
-    </ul>
-  </footer>
+  <footer><span class="footer-name">© 2025 Kate Nicole Young</span><ul class="footer-links"><li><a href="https://github.com/wanl1n">GitHub</a></li><li><a href="https://bunnsp.itch.io">Itch.io</a></li><li><a href="https://linktr.ee/kate_wanlin">Linktree</a></li></ul></footer>
 </div>
 
-<!-- ===================== ARTWORKS ===================== -->
+<!-- ARTWORKS -->
 <div id="page-artworks" class="page">
   <div class="page-hero">
     <h2>Artworks</h2>
     <p>Digital art, illustrations, UI/UX design, and graphic design work — spanning game art, marketing materials, and personal pieces.</p>
   </div>
-  <div class="artworks-placeholder">
-    <p>View the full artworks gallery on the original portfolio site, or check out the marketing & graphics design portfolio on Canva.</p>
-    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+  <div class="section" style="text-align:center;">
+    <p style="font-size:0.6rem;color:var(--text-mid);margin-bottom:1rem;line-height:1.75;">View the full artworks gallery on the original portfolio site, or check out the marketing &amp; graphics design portfolio on Canva.</p>
+    <div style="display:flex;gap:0.67rem;justify-content:center;flex-wrap:wrap;">
       <a class="btn-rose" href="https://sites.google.com/dlsu.edu.ph/kate-nicole-young/artworks">View artworks gallery</a>
       <a class="btn-ghost" href="https://www.canva.com/design/DAGR9jCafMY/3wIt_iN_xdb-MSuoPu-nnA/view">Marketing portfolio (Canva)</a>
     </div>
   </div>
-  <footer>
-    <span class="footer-name">© 2025 Kate Nicole Young</span>
-    <ul class="footer-links">
-      <li><a href="https://www.instagram.com/bunnsp">Instagram</a></li>
-      <li><a href="https://github.com/wanl1n">GitHub</a></li>
-    </ul>
-  </footer>
+  <footer><span class="footer-name">© 2025 Kate Nicole Young</span><ul class="footer-links"><li><a href="https://www.instagram.com/bunnsp">Instagram</a></li><li><a href="https://github.com/wanl1n">GitHub</a></li></ul></footer>
 </div>
 
-<!-- ===================== ABOUT ===================== -->
+<!-- ABOUT -->
 <div id="page-about" class="page">
-  <div class="page-hero">
-    <h2>About Me</h2>
-  </div>
+  <div class="page-hero"><h2>About Me</h2></div>
   <section class="section">
     <div class="about-layout">
       <div class="about-text">
@@ -516,18 +319,14 @@
         <p>I led teams of up to 14 members across diverse disciplines — game development, software programming, marketing, and graphic design — honing my project management and leadership skills along the way.</p>
         <p>I've worked on both the development and marketing side, launching and managing social media channels for organizations like the Lasallian Scholars Society and my own project, Largo's Labyrinth.</p>
         <p>My passion ultimately drives me to create memorable and immersive experiences with the help of my technical expertise, creativity, and thirst for new experiences.</p>
-        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
-          <a class="btn-rose" href="mailto:tigerroseyoung@gmail.com">Send a message</a>
+        <div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:0.9rem;">
+          <a class="btn-rose" href="/cdn-cgi/l/email-protection#dfabb6b8baadadb0acbaa6b0aab1b89fb8b2beb6b3f1bcb0b2">Send a message</a>
           <a class="btn-ghost" href="https://www.canva.com/design/DAGR9jCafMY/3wIt_iN_xdb-MSuoPu-nnA/view">Marketing portfolio</a>
         </div>
       </div>
       <div class="about-aside">
         <div class="aside-heading">Currently studying at</div>
-        <ul class="aside-list">
-          <li>De La Salle University</li>
-          <li>Game Development program</li>
-          <li>Lasallian Scholars Society</li>
-        </ul>
+        <ul class="aside-list"><li>De La Salle University</li><li>Game Development program</li><li>Lasallian Scholars Society</li></ul>
         <div class="aside-heading">Find me online</div>
         <ul class="aside-list">
           <li><a href="https://github.com/wanl1n">github.com/wanl1n</a></li>
@@ -537,22 +336,14 @@
         </ul>
         <div class="aside-heading">Certifications</div>
         <div class="cert-row">
-          <a href="https://www.credly.com/badges/84de2c90-7b2a-4d7c-a463-3b5f55eeea43/public_url" style="text-decoration:none;">
-            <div class="cert-item"><div class="cert-name">Unity Essentials Pathway</div><div class="cert-by">Unity Technologies</div></div>
-          </a>
-          <a href="https://www.credly.com/badges/813053ed-b6c9-4bce-8490-5e6ba38f23e4/public_url" style="text-decoration:none;">
-            <div class="cert-item"><div class="cert-name">Unity Junior Programmer</div><div class="cert-by">Unity Technologies</div></div>
-          </a>
+          <a href="https://www.credly.com/badges/84de2c90-7b2a-4d7c-a463-3b5f55eeea43/public_url" style="text-decoration:none;"><div class="cert-item"><div class="cert-name">Unity Essentials Pathway</div><div class="cert-by">Unity Technologies</div></div></a>
+          <a href="https://www.credly.com/badges/813053ed-b6c9-4bce-8490-5e6ba38f23e4/public_url" style="text-decoration:none;"><div class="cert-item"><div class="cert-name">Unity Junior Programmer</div><div class="cert-by">Unity Technologies</div></div></a>
         </div>
       </div>
     </div>
   </section>
-
   <section class="section skills-section">
-    <div class="section-header">
-      <h2 class="section-title">Skills & Tools</h2>
-      <div class="section-line"></div>
-    </div>
+    <div class="section-header"><h2 class="section-title">Skills &amp; Tools</h2><div class="section-line"></div></div>
     <div class="skills-grid">
       <div>
         <div class="skill-group-title">Game Engines</div>
@@ -562,7 +353,7 @@
         <div class="skill-pills"><span class="pill">C#</span><span class="pill">C++</span><span class="pill">PHP</span><span class="pill">SQL</span><span class="pill">GLSL</span></div>
       </div>
       <div>
-        <div class="skill-group-title">Art & Design</div>
+        <div class="skill-group-title">Art &amp; Design</div>
         <div class="skill-pills"><span class="pill">Medibang Paint</span><span class="pill">Canva</span><span class="pill">Live2D</span><span class="pill">Sprite Art</span><span class="pill">Graphic Design</span></div>
         <br>
         <div class="skill-group-title">Unity Features</div>
@@ -577,13 +368,12 @@
       </div>
     </div>
   </section>
-
   <div class="contact-strip">
     <div class="sprig">· · ·</div>
     <h2>Let's connect</h2>
     <p>Open to collaborations, projects, and opportunities. Always happy to hear from you.</p>
     <div class="contact-row">
-      <a class="btn-rose" href="mailto:tigerroseyoung@gmail.com">Send a message</a>
+      <a class="btn-rose" href="/cdn-cgi/l/email-protection#a1d5c8c6c4d3d3ced2c4d8ced4cfc6e1c6ccc0c8cd8fc2cecc">Send a message</a>
       <a class="btn-ghost" href="https://www.linkedin.com/in/young-kate-nicole/">LinkedIn</a>
     </div>
     <div class="socials-contact">
@@ -593,27 +383,11 @@
       <a class="social-link" href="https://soundcloud.com/wanlin_yang">SoundCloud</a>
     </div>
   </div>
-  <footer>
-    <span class="footer-name">© 2025 Kate Nicole Young</span>
-    <ul class="footer-links">
-      <li><a href="https://github.com/wanl1n">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/young-kate-nicole/">LinkedIn</a></li>
-      <li><a href="https://bunnsp.itch.io">Itch.io</a></li>
-    </ul>
-  </footer>
+  <footer><span class="footer-name">© 2025 Kate Nicole Young</span><ul class="footer-links"><li><a href="https://github.com/wanl1n">GitHub</a></li><li><a href="https://www.linkedin.com/in/young-kate-nicole/">LinkedIn</a></li><li><a href="https://bunnsp.itch.io">Itch.io</a></li></ul></footer>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('visible'));
   document.querySelectorAll('.nav-links button').forEach(b=>b.classList.remove('active'));
-  const page=document.getElementById('page-'+id);
-  if(page){page.classList.add('visible');}
-  const btn=document.getElementById('nav-'+id);
-  if(btn){btn.classList.add('active');}
-  window.scrollTo&&window.scrollTo(0,0);
-}
-function toggleTheme(){
-  document.body.classList.toggle('dark');
-}
-</script>
+  var page=documen
